@@ -1,4 +1,4 @@
-from logging import exception
+ 16.11.2026
 
 class Product:
     def __init__(self, name, price, quantity):
@@ -35,6 +35,7 @@ class Product:
             self.quantity -= quantity  # reduce quantity
         return float(quantity * self.price)
 
+'''
 def main():
     bose = Product("Bose QuietComfort Earbuds", price = 250, quantity = 500)
     mac  = Product("MacBook Air M2", price=1450, quantity=100)
@@ -48,6 +49,6 @@ def main():
 
     bose.show()
     mac.show()
-
+'''
 # Start
-main()
+#main()
