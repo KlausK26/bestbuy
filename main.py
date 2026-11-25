@@ -8,7 +8,6 @@ product_list = [ products.Product("MacBook Air M2", price=1450, quantity=100),
                  products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
                  products.Product("Google Pixel 7", price=500, quantity=250)
                ]
-
 best_buy = store.Store(product_list)  # Erstellung einer Instanz
 
 def print_menu():       # formatted view of then menu
@@ -68,7 +67,7 @@ def start(store_in):    # init store view
                             products = best_buy.get_all_products()    # read all products
 
                             if index > 0 and amount < products[index - 1].quantity:   # check
-                                total = store_in.order([(products[index - 1], amount)])
+                                total += store_in.order([(products[index - 1], amount)])
                                 shopping_cart.append([products[index - 1]])
                                 print("Product added to list!\n")
                         else:
