@@ -1,7 +1,7 @@
 # 24.11 2026
 # Reihenfolge imports beachten
-import store        # Store Klasse
-import products     # Product Klasse
+import store        # get Store Class
+import products     # get Product Class
 
 # setup initial stock of inventory
 product_list = [ products.Product("MacBook Air M2", price=1450, quantity=100),
@@ -34,7 +34,7 @@ def show_products():
 def start(store_in):
     """"init store view"""
     while True:         # main loop
-        print_menu()
+        print_menu()    # shows formated menu
         try:
             selected = int(input("Please choose a number: "))
             if selected <= 0 or selected >= 5:     # only numbers (1..4)
@@ -67,11 +67,13 @@ def start(store_in):
                         if index_text.isdecimal() and amount_text.isdecimal():
                             index = int(index_text)
                             amount = int(amount_text)
-                            product_list = best_buy.get_all_products()    # read all products
+                            list_of_products = best_buy.get_all_products()    # read all products
+                            max_prod_items = 4    # max product types
 
-                            if index > 0 and  0 < amount <= product_list[index - 1].quantity:   # check
-                                total += store_in.order([(product_list[index - 1], amount)])
-                                shopping_cart.append([product_list[index - 1]])
+                            if ( 0 < index < max_prod_items and
+                                0 < amount <= list_of_products[index - 1].quantity):   # check input values
+                                total += store_in.order([(list_of_products[index - 1], amount)])
+                                shopping_cart.append([list_of_products[index - 1]])
                                 print("Product added to list!\n")
                             else:
                                 print("Error adding product!")
