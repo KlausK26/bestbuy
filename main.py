@@ -53,11 +53,13 @@ def start(store_in):    # init store view
                 # order loop
                 print("When you want to finish order, enter empty text.")  # was genau ??
                 while True:
-                    try:
                         index_text = input("Which product # do you want? ")
                         amount_text = input("What amount do you want? ")
 
                         if index_text == "" or amount_text == "":   # exit order loop
+                            if total > 0:
+                                print("********")
+                                print("Order made! Total payment: ", total)
                             break
 
                         if index_text.isdecimal() and amount_text.isdecimal():
@@ -72,11 +74,6 @@ def start(store_in):    # init store view
                         else:
                             print("Error adding product!")
                             print("")
-
-                    except ValueError:  # end order
-                        if total > 0:
-                            print("Order made! Total payment: ", total)
-                            break
 
             if selected == 4:   # quit app
                 break
