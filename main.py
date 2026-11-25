@@ -58,7 +58,7 @@ def start(store_in):    # init store view
                         if index_text == "" or amount_text == "":   # exit order loop
                             if total > 0:
                                 print("********")
-                                print("Order made! Total payment:", total)
+                                print(f"Order made! Total payment: ${total}")
                             break
 
                         if index_text.isdecimal() and amount_text.isdecimal():
