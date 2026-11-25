@@ -17,7 +17,7 @@ def print_menu():       # formatted view of then menu
     print("1. List all products in store")
     print("2. Show total amount in store")
     print("3. Make an order")
-    print("4. quit")
+    print("4. Quit")
 
 def show_products():       # show list of products in store
     products_in_store = best_buy.get_all_products()
