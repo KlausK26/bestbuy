@@ -1,6 +1,4 @@
 # BestBuy Project 18.11.2026
-import products
-
 class Store:
     def __init__(self, products_init):       # list of products
         self.product_list = []

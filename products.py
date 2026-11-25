@@ -31,6 +31,6 @@ class Product:
     def buy(self, quantity):
         if quantity > self.quantity:
             raise ValueError("Quantity is too big")
-        else:
-            self.quantity -= quantity  # reduce quantity
+
+        self.quantity -= quantity  # reduce quantity
         return float(quantity * self.price)
