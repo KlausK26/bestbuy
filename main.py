@@ -66,10 +66,14 @@ def start(store_in):    # init store view
                             amount = int(amount_text)
                             products = best_buy.get_all_products()    # read all products
 
-                            if index > 0 and amount < products[index - 1].quantity:   # check
+                            if index > 0 and amount <= products[index - 1].quantity:   # check
                                 total += store_in.order([(products[index - 1], amount)])
                                 shopping_cart.append([products[index - 1]])
                                 print("Product added to list!\n")
+                            else:
+                                print("Error adding product!")
+                                print("")
+
                         else:
                             print("Error adding product!")
                             print("")
