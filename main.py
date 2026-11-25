@@ -10,7 +10,8 @@ product_list = [ products.Product("MacBook Air M2", price=1450, quantity=100),
                ]
 best_buy = store.Store(product_list)  # Erstellung einer Instanz
 
-def print_menu():       # formatted view of then menu
+def print_menu():
+    """"formatted view of then menu"""
     print("")
     print("   Store Menu")
     print("   ----------")
@@ -19,7 +20,8 @@ def print_menu():       # formatted view of then menu
     print("3. Make an order")
     print("4. Quit")
 
-def show_products():       # show list of products in store
+def show_products():
+    """"show list of products in store"""
     products_in_store = best_buy.get_all_products()
     num = 0
     print("------")
@@ -29,7 +31,8 @@ def show_products():       # show list of products in store
               f"Quantity: {item.quantity} ")
     print("------")
 
-def start(store_in):    # init store view
+def start(store_in):
+    """"init store view"""
     while True:         # main loop
         print_menu()
         try:
@@ -42,7 +45,7 @@ def start(store_in):    # init store view
 
             if selected == 2:    # total_quantity
                 total = best_buy.get_total_quantity()
-                print("Total of {} items in store".format(total))
+                print(f"Total of {total} items in store")
 
             if selected == 3:  # make an order
                 show_products()
@@ -64,11 +67,11 @@ def start(store_in):    # init store view
                         if index_text.isdecimal() and amount_text.isdecimal():
                             index = int(index_text)
                             amount = int(amount_text)
-                            products = best_buy.get_all_products()    # read all products
+                            product_list = best_buy.get_all_products()    # read all products
 
-                            if index > 0 and  0 < amount <= products[index - 1].quantity:   # check
-                                total += store_in.order([(products[index - 1], amount)])
-                                shopping_cart.append([products[index - 1]])
+                            if index > 0 and  0 < amount <= product_list[index - 1].quantity:   # check
+                                total += store_in.order([(product_list[index - 1], amount)])
+                                shopping_cart.append([product_list[index - 1]])
                                 print("Product added to list!\n")
                             else:
                                 print("Error adding product!")
@@ -84,7 +87,8 @@ def start(store_in):    # init store view
         except ValueError:
                     print("Error with your choice! Try again!")
 
-def main():     # main function
+def main():
+    """"main function"""
     start(best_buy)
 
 main()
